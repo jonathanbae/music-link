@@ -25,3 +25,16 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+
+# Potential Workflow
+
+1. User logs in to main account, generate a random URL on end
+    1. Allow a button to copy/paste URL
+2. Run GETS to retrieve currently playing song (maybe every 15 seconds?)
+    * potentially calculate when the next GET call should be
+3. On another instance, log in
+    1. Paste URL and retrieve the songs that are playing
+        * If songs are not equal, play song at current time stamp of the GET
+        * If songs are equal, do nothing 

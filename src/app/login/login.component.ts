@@ -51,9 +51,14 @@ export class LoginComponent implements OnInit {
 
   connectSpotify() {
     let urlString = 'https://accounts.spotify.com/authorize?';
-    urlString += 'client_id=04c76a60c57d4ba7ab6c801ede7ad24d';
-    urlString += '&response_type=code';
-    urlString += '&redirect_uri=localhost:4200/authorize';
+    urlString += 'client_id=';
+    urlString +=  '04c76a60c57d4ba7ab6c801ede7ad24d';
+    urlString += '&response_type=';
+    urlString += 'code';
+    urlString += '&redirect_uri=';
+    urlString += 'localhost:4200/authorize';
+    urlString += '&scope=';
+    urlString += 'user-read-currently-playing%20streaming%20user-read-playback-state';
     window.open(urlString);
   }
 }
