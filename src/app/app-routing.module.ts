@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
 import { ViewSongComponent } from './view-song/view-song.component';
+import { AuthorizeComponent } from './authorize/authorize.component';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 const routes: Routes = [
@@ -13,7 +14,10 @@ const routes: Routes = [
   {
     path: 'view-song',
     component: ViewSongComponent
-
+  },
+  {
+    path: 'authorize',
+    component: AuthorizeComponent
   }
 ];
 

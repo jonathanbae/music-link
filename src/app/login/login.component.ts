@@ -1,6 +1,6 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable()
 @Component({
@@ -12,9 +12,19 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
   submitted = false;
+  clientSettings;
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient) {
     this.formBuilder = new FormBuilder();
+    this.clientSettings = {};
+    // this.clientSettings.clientId = null;
+    this.clientSettings.clientId = '04c76a60c57d4ba7ab6c801ede7ad24d';
+    // this.clientSettings.redirectUri = null;
+    this.clientSettings.redirectUri = 'localhost:4200/login';
+    // this.clientSettings.scope = null;
+    this.clientSettings.scope = '04c76a60c57d4ba7ab6c801ede7ad24d';
+    // this.clientSettings.authToken = null;
+    this.clientSettings.authToken = '';
   }
 
   ngOnInit() {
@@ -38,4 +48,12 @@ export class LoginComponent implements OnInit {
     this.loading = true;
   }
 
+
+  connectSpotify() {
+    let urlString = 'https://accounts.spotify.com/authorize?';
+    urlString += 'client_id=04c76a60c57d4ba7ab6c801ede7ad24d';
+    urlString += '&response_type=code';
+    urlString += '&redirect_uri=localhost:4200/authorize';
+    window.open(urlString);
+  }
 }
